@@ -17,7 +17,7 @@ public class A {
             }
             for (int j = 0; j < input; j++) {
                 if (j % 2 == 0) {
-                    System.out.print((j * 3 + 2)+ " " + ((j + 1) * 3 + 3) + " ");
+                    System.out.println((j * 3 + 2)+ " " + ((j + 1) * 3 + 3));
                 }
             }
             if (last > -1) {
