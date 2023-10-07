@@ -1,5 +1,6 @@
 package org.example.contest2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class G {
@@ -23,11 +24,25 @@ public class G {
                 max = Math.max(max, d[j]);
             }
             d[n-1] = Long.MAX_VALUE;
+            d = Arrays.stream(d).sorted().toArray();
+            int current = 0;
+            boolean success = false;
             while (check(v) < h) {
-                if (v <= max)
+                v = d[current];
+                current++;
+                if (current == n) {
+                    v += h - check(v);
+                    success = true;
+                    break;
+                }
+            }
+            if (!success) {
+                current -= 2;
+                if (current > -1)
+                    v = d[current] + 1;
+                while (check(v) < h) {
                     v++;
-                else
-                    v = h - check(v);
+                }
             }
             System.out.println(v);
         }
